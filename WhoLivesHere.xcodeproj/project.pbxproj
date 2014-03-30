@@ -26,6 +26,8 @@
 		A0ABE06A18E7CF32007E51D1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0ABE06218E7CF31007E51D1 /* Images.xcassets */; };
 		A0ABE06F18E7CF78007E51D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A0ABE06C18E7CF78007E51D1 /* main.m */; };
 		A0ABE07418E7D369007E51D1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0ABE07218E7D369007E51D1 /* Localizable.strings */; };
+		A0ABE07718E7F070007E51D1 /* FNMFacebookOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A0ABE07618E7F070007E51D1 /* FNMFacebookOperation.m */; };
+		A0ABE07A18E7F7D2007E51D1 /* FNMLocationOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A0ABE07918E7F7D2007E51D1 /* FNMLocationOperation.m */; };
 		A0AC4C4118D7EE97000C567F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0AC4C4018D7EE97000C567F /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +68,10 @@
 		A0ABE06D18E7CF78007E51D1 /* WhoLivesHere-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "WhoLivesHere-Info.plist"; path = "WhoLivesHere/WhoLivesHere-Info.plist"; sourceTree = "<group>"; };
 		A0ABE06E18E7CF78007E51D1 /* WhoLivesHere-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "WhoLivesHere-Prefix.pch"; path = "WhoLivesHere/WhoLivesHere-Prefix.pch"; sourceTree = "<group>"; };
 		A0ABE07318E7D369007E51D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
+		A0ABE07518E7F070007E51D1 /* FNMFacebookOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNMFacebookOperation.h; path = WhoLivesHere/FNMFacebookOperation.h; sourceTree = "<group>"; };
+		A0ABE07618E7F070007E51D1 /* FNMFacebookOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNMFacebookOperation.m; path = WhoLivesHere/FNMFacebookOperation.m; sourceTree = "<group>"; };
+		A0ABE07818E7F7D2007E51D1 /* FNMLocationOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNMLocationOperation.h; path = WhoLivesHere/FNMLocationOperation.h; sourceTree = "<group>"; };
+		A0ABE07918E7F7D2007E51D1 /* FNMLocationOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNMLocationOperation.m; path = WhoLivesHere/FNMLocationOperation.m; sourceTree = "<group>"; };
 		A0AC4C4018D7EE97000C567F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		EF9AB91211574377B126EE96 /* libPods-WhoLivesHere.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WhoLivesHere.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC06301C50AE425A89B209A4 /* Pods-WhoLivesHere.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoLivesHere.xcconfig"; path = "Pods/Pods-WhoLivesHere.xcconfig"; sourceTree = "<group>"; };
@@ -180,6 +186,10 @@
 				A0ABE05B18E7CF31007E51D1 /* FNMFacebookFriend.m */,
 				A0ABE05C18E7CF31007E51D1 /* FNMFriendClient.h */,
 				A0ABE05D18E7CF31007E51D1 /* FNMFriendClient.m */,
+				A0ABE07818E7F7D2007E51D1 /* FNMLocationOperation.h */,
+				A0ABE07918E7F7D2007E51D1 /* FNMLocationOperation.m */,
+				A0ABE07518E7F070007E51D1 /* FNMFacebookOperation.h */,
+				A0ABE07618E7F070007E51D1 /* FNMFacebookOperation.m */,
 				A0ABE05E18E7CF31007E51D1 /* FNMFriendTableViewController.h */,
 				A0ABE05F18E7CF31007E51D1 /* FNMFriendTableViewController.m */,
 				A0ABE06018E7CF31007E51D1 /* FNMLoginViewController.h */,
@@ -337,7 +347,9 @@
 			files = (
 				A0ABE06718E7CF32007E51D1 /* FNMFriendClient.m in Sources */,
 				A0ABE06918E7CF32007E51D1 /* FNMLoginViewController.m in Sources */,
+				A0ABE07718E7F070007E51D1 /* FNMFacebookOperation.m in Sources */,
 				A0ABE06818E7CF32007E51D1 /* FNMFriendTableViewController.m in Sources */,
+				A0ABE07A18E7F7D2007E51D1 /* FNMLocationOperation.m in Sources */,
 				A0ABE06518E7CF32007E51D1 /* FNMAppDelegate.m in Sources */,
 				A0ABE06F18E7CF78007E51D1 /* main.m in Sources */,
 				A0ABE06618E7CF32007E51D1 /* FNMFacebookFriend.m in Sources */,

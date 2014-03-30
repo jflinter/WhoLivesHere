@@ -8,8 +8,11 @@
 
 #import "FNMFriendClient.h"
 #import "FNMFacebookFriend.h"
-
 #import <Facebook-iOS-SDK/FacebookSDK/FacebookSDK.h>
+
+#import "FNMFacebookOperation.h"
+#import "FNMLocationOperation.h"
+#import <RNConcurrentBlockOperation/RNConcurrentBlockOperation.h>
 
 @implementation FNMFriendClient
 
@@ -35,59 +38,35 @@
 
 - (void)searchForFriends:(NSString *)query
             withCallback:(void (^)(NSArray *results, NSError *error))callback {
-    [self findAllFriendsWithCallback:^(NSArray *results, NSError *error) {
-        if (error) {
-            callback(nil, error);
+    FNMFacebookOperation *facebookOperation = [FNMFacebookOperation allFriendsOperation];
+    FNMLocationOperation *locationOperation = [FNMLocationOperation locationOperationWithQuery:query];
+    RNConcurrentBlockOperation *filteringOperation = [RNConcurrentBlockOperation operationWithBlock:^(RNCompletionBlock completion) {
+        if (facebookOperation.error) {
+            callback(nil, facebookOperation.error);
             return;
         }
-        CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-        [geocoder geocodeAddressString:query completionHandler:^(NSArray *placemarks, NSError *error) {
-            if (error) {
-                callback(nil, error);
-                return;
-            }
-            [[FNMFriendClient sharedInstance] findAllFriendsWithCallback:^(NSArray *results, NSError *error) {
-                if (error) {
-                    callback(nil, error);
-                    return;
-                }
-                CLPlacemark *placemark = [placemarks firstObject];
-                results = [results filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(FNMFacebookFriend *friend, NSDictionary *bindings) {
-                    CLLocationDistance distance = [friend.locationCoordinate distanceFromLocation:placemark.location];
-                    CLCircularRegion *region = (CLCircularRegion *)placemark.region;
-                    CLLocationDistance threshold = MAX(50000, region.radius);
-                    BOOL stringIsSubset = [query.lowercaseString rangeOfString:friend.location.lowercaseString].location != NSNotFound;
-                    return (distance < threshold) || stringIsSubset;
-                }]];
-                callback(results, nil);
-            }];
-        }];
+        if (locationOperation.error) {
+            callback(nil, locationOperation.error);
+            return;
+        }
+        CLPlacemark *placemark = [locationOperation.placemarks firstObject];
+        NSArray *results = [facebookOperation.friends filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(FNMFacebookFriend *friend, NSDictionary *bindings) {
+            CLLocationDistance distance = [friend.locationCoordinate distanceFromLocation:placemark.location];
+            CLCircularRegion *region = (CLCircularRegion *)placemark.region;
+            CLLocationDistance threshold = MAX(50000, region.radius);
+            BOOL stringIsSubset = [query.lowercaseString rangeOfString:friend.location.lowercaseString].location != NSNotFound;
+            return (distance < threshold) || stringIsSubset;
+        }]];
+        callback(results, nil);
+        completion(@{});
     }];
-}
-
-- (void)findAllFriendsWithCallback:(void (^)(NSArray *results, NSError *error))callback {
-    NSString *fqlQuery = @"SELECT name, uid, pic_square, current_location FROM user WHERE uid in (SELECT uid2 FROM friend WHERE uid1=me()) AND current_location ORDER BY name ASC";
-
-    NSDictionary *queryParam = @{ @"q": fqlQuery };
-    // Make the API request that uses FQL
-    [FBRequestConnection startWithGraphPath:@"/fql"
-                                 parameters:queryParam
-                                 HTTPMethod:@"GET"
-                          completionHandler:^(FBRequestConnection *connection,
-                                  id result,
-                                  NSError *error) {
-                              if (error) {
-                                  callback(nil, error);
-                                  return;
-                              }
-                              NSArray *dicts = [result objectForKey:@"data"];
-                              NSMutableArray *friends = [@[] mutableCopy];
-                              for (NSDictionary *dict in dicts) {
-                                  FNMFacebookFriend *friend = [[FNMFacebookFriend alloc] initWithResponseDictionary:dict];
-                                  [friends addObject:friend];
-                              }
-                              callback(friends, nil);
-                          }];
+    
+    [filteringOperation addDependency:facebookOperation];
+    [filteringOperation addDependency:locationOperation];
+    NSOperationQueue *operationQueue = [NSOperationQueue new];
+    [operationQueue addOperation:facebookOperation];
+    [operationQueue addOperation:locationOperation];
+    [operationQueue addOperation:filteringOperation];
 }
 
 @end
