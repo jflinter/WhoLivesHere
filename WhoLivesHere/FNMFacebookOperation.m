@@ -18,7 +18,7 @@ static NSString *const kErrorKey = @"error";
 + (FNMFacebookOperation *)allFriendsOperation {
     FNMFacebookOperation *operation;
     operation = [FNMFacebookOperation operationWithBlock:^(RNCompletionBlock completion) {
-        NSString *fqlQuery = @"SELECT name, uid, pic_square, current_location FROM user WHERE uid in (SELECT uid2 FROM friend WHERE uid1=me()) AND current_location ORDER BY name ASC";
+        NSString *fqlQuery = @"SELECT name, uid, current_location, mutual_friend_count FROM user WHERE uid in (SELECT uid2 FROM friend WHERE uid1=me()) AND current_location ORDER BY name ASC";
         
         NSDictionary *queryParam = @{ @"q": fqlQuery };
         [FBRequestConnection startWithGraphPath:@"/fql"

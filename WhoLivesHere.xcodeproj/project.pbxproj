@@ -28,6 +28,7 @@
 		A0ABE07418E7D369007E51D1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0ABE07218E7D369007E51D1 /* Localizable.strings */; };
 		A0ABE07718E7F070007E51D1 /* FNMFacebookOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A0ABE07618E7F070007E51D1 /* FNMFacebookOperation.m */; };
 		A0ABE07A18E7F7D2007E51D1 /* FNMLocationOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A0ABE07918E7F7D2007E51D1 /* FNMLocationOperation.m */; };
+		A0ABE07D18E80926007E51D1 /* FNMFriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0ABE07C18E80926007E51D1 /* FNMFriendTableViewCell.m */; };
 		A0AC4C4118D7EE97000C567F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0AC4C4018D7EE97000C567F /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,8 @@
 		A0ABE07618E7F070007E51D1 /* FNMFacebookOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNMFacebookOperation.m; path = WhoLivesHere/FNMFacebookOperation.m; sourceTree = "<group>"; };
 		A0ABE07818E7F7D2007E51D1 /* FNMLocationOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNMLocationOperation.h; path = WhoLivesHere/FNMLocationOperation.h; sourceTree = "<group>"; };
 		A0ABE07918E7F7D2007E51D1 /* FNMLocationOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNMLocationOperation.m; path = WhoLivesHere/FNMLocationOperation.m; sourceTree = "<group>"; };
+		A0ABE07B18E80926007E51D1 /* FNMFriendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNMFriendTableViewCell.h; path = WhoLivesHere/FNMFriendTableViewCell.h; sourceTree = "<group>"; };
+		A0ABE07C18E80926007E51D1 /* FNMFriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNMFriendTableViewCell.m; path = WhoLivesHere/FNMFriendTableViewCell.m; sourceTree = "<group>"; };
 		A0AC4C4018D7EE97000C567F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		EF9AB91211574377B126EE96 /* libPods-WhoLivesHere.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WhoLivesHere.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC06301C50AE425A89B209A4 /* Pods-WhoLivesHere.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoLivesHere.xcconfig"; path = "Pods/Pods-WhoLivesHere.xcconfig"; sourceTree = "<group>"; };
@@ -184,6 +187,8 @@
 				A0ABE05918E7CF31007E51D1 /* FNMAppDelegate.m */,
 				A0ABE05A18E7CF31007E51D1 /* FNMFacebookFriend.h */,
 				A0ABE05B18E7CF31007E51D1 /* FNMFacebookFriend.m */,
+				A0ABE07B18E80926007E51D1 /* FNMFriendTableViewCell.h */,
+				A0ABE07C18E80926007E51D1 /* FNMFriendTableViewCell.m */,
 				A0ABE05C18E7CF31007E51D1 /* FNMFriendClient.h */,
 				A0ABE05D18E7CF31007E51D1 /* FNMFriendClient.m */,
 				A0ABE07818E7F7D2007E51D1 /* FNMLocationOperation.h */,
@@ -345,6 +350,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0ABE07D18E80926007E51D1 /* FNMFriendTableViewCell.m in Sources */,
 				A0ABE06718E7CF32007E51D1 /* FNMFriendClient.m in Sources */,
 				A0ABE06918E7CF32007E51D1 /* FNMLoginViewController.m in Sources */,
 				A0ABE07718E7F070007E51D1 /* FNMFacebookOperation.m in Sources */,

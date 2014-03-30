@@ -20,6 +20,7 @@
         CLLocationDegrees lat = [[[dict objectForKey:@"current_location"] objectForKey:@"latitude"] doubleValue];
         CLLocationDegrees lng = [[[dict objectForKey:@"current_location"] objectForKey:@"longitude"] doubleValue];
         _locationCoordinate = [[CLLocation alloc] initWithLatitude:lat longitude:lng];
+        _mutualFriendCount = [[dict objectForKey:@"mutual_friend_count"] integerValue];
     }
     return self;
 }

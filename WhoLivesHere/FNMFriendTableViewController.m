@@ -9,11 +9,12 @@
 #import "FNMFriendTableViewController.h"
 #import "FNMFacebookFriend.h"
 #import "FNMFriendClient.h"
+#import "FNMFriendTableViewCell.h"
 
 @interface FNMFriendTableViewController ()<UISearchBarDelegate, UIActionSheetDelegate>
 @property (weak, nonatomic) UISearchBar *searchBar;
 @property (nonatomic) UIActivityIndicatorView *activityIndicatorView;
-@property(nonatomic, readonly) NSArray *friendsList;
+@property(nonatomic, readwrite) NSArray *friendsList;
 @property(nonatomic, readwrite) FNMFacebookFriend *selectedFriend;
 @end
 
@@ -63,27 +64,14 @@
     [self.searchBar becomeFirstResponder];
 }
 
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    [searchBar resignFirstResponder];
-    if (!searchBar.text.length) {
-        return;
-    }
-    [self willBeginSearching];
-    [[FNMFriendClient sharedInstance] searchForFriends:searchBar.text withCallback:^(NSArray *results, NSError *error) {
-        if (error) {
-            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Whoops", nil) message:NSLocalizedString(@"Something went wrong while searching for your friends. Please check your Internet connection and try again!", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
-        }
-        else {
-            _friendsList = results;
-        }
-        [self didEndSearching];
-    }];
+- (void) willBeginSearching {
+    [self clearResults];
+    [self.activityIndicatorView startAnimating];
 }
 
-- (void) willBeginSearching {
-    _friendsList = @[];
+- (void) clearResults {
+    self.friendsList = @[];
     [self.tableView reloadData];
-    [self.activityIndicatorView startAnimating];
     self.tableView.tableFooterView = nil;
 }
 
@@ -97,7 +85,7 @@
     self.tableView.tableFooterView = label;
 }
 
-#pragma mark - Table view data source
+#pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -107,33 +95,59 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
+    FNMFriendTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     FNMFacebookFriend *friend = [self.friendsList objectAtIndex:indexPath.row];
-    cell.textLabel.text = friend.name;
-    cell.detailTextLabel.text = friend.location;
+    [cell configureWithFriend:friend];
     
     return cell;
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    self.selectedFriend = [self.friendsList objectAtIndex:indexPath.row];
     if (![[UIApplication sharedApplication] canOpenURL:self.selectedFriend.fbURL]) {
         // User doesn't have the FB app
         NSString *message = [NSString stringWithFormat:NSLocalizedString(@"Install the Facebook app to view %@'s profile.", nil), self.selectedFriend.name];
         [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Can't open profile", nil) message:message delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
         return;
     }
-    self.selectedFriend = [self.friendsList objectAtIndex:indexPath.row];
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"View in FB App", nil), nil];
     [actionSheet showInView:self.tableView];
 }
+
+# pragma mark - UIActionSheetDelegate
 
 - (void)actionSheet:(UIActionSheet *)actionSheet
 clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex != actionSheet.cancelButtonIndex) {
         [[UIApplication sharedApplication] openURL:self.selectedFriend.fbURL];
     }
+}
+
+#pragma mark - UISearchBarDelegate
+
+- (void)searchBar:(UISearchBar *)searchBar
+    textDidChange:(NSString *)searchText {
+    if ([searchText isEqualToString:@""]) {
+        [self clearResults];
+    }
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
+    if (!searchBar.text.length) {
+        return;
+    }
+    [self willBeginSearching];
+    [[FNMFriendClient sharedInstance] searchForFriends:searchBar.text withCallback:^(NSArray *results, NSError *error) {
+        if (error) {
+            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Whoops", nil) message:NSLocalizedString(@"Something went wrong while searching for your friends. Please check your Internet connection and try again!", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+        }
+        else {
+            self.friendsList = results;
+        }
+        [self didEndSearching];
+    }];
 }
 
 @end
