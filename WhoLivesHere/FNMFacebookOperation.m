@@ -16,8 +16,7 @@ static NSString *const kErrorKey = @"error";
 @implementation FNMFacebookOperation
 
 + (FNMFacebookOperation *)allFriendsOperation {
-    FNMFacebookOperation *operation;
-    operation = [FNMFacebookOperation operationWithBlock:^(RNCompletionBlock completion) {
+    return [FNMFacebookOperation operationWithBlock:^(RNCompletionBlock completion) {
         NSString *fqlQuery = @"SELECT name, uid, current_location, mutual_friend_count FROM user WHERE uid in (SELECT uid2 FROM friend WHERE uid1=me()) AND current_location ORDER BY name ASC";
         
         NSDictionary *queryParam = @{ @"q": fqlQuery };
@@ -33,15 +32,23 @@ static NSString *const kErrorKey = @"error";
                                   }
                                   NSArray *dicts = [result objectForKey:@"data"];
                                   NSMutableArray *friends = [@[] mutableCopy];
+                                  BOOL anyNilMutualFriends = NO;
                                   for (NSDictionary *dict in dicts) {
                                       FNMFacebookFriend *friend = [[FNMFacebookFriend alloc] initWithResponseDictionary:dict];
                                       [friends addObject:friend];
+                                      if (!friend.mutualFriendCount) {
+                                          anyNilMutualFriends = YES;
+                                      }
+                                  }
+                                  if (anyNilMutualFriends) {
+                                      for (FNMFacebookFriend *friend in friends) {
+                                          friend.mutualFriendCount = nil;
+                                      }
                                   }
                                   completion(@{kFriendsKey: friends});
                               }];
 
     }];
-    return operation;
 }
 
 - (NSArray *)friends {

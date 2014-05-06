@@ -16,4 +16,4 @@ SPEC CHECKSUMS:
   Facebook-iOS-SDK: 43b3b60274732f16e4a55f5a53a94fbdb31e5d0b
   RNConcurrentBlockOperation: 08fa2ac1ffd15e026732c9b30453db7c57ab91dc
 
-COCOAPODS: 0.30.0
+COCOAPODS: 0.32.1

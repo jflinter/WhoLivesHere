@@ -12,10 +12,14 @@
 @implementation FNMFriendTableViewCell
 
 - (void) configureWithFriend:(FNMFacebookFriend *)facebookFriend {
+    self.mutualFriendLabel.text = @"";
     self.nameLabel.text = facebookFriend.name;
     self.locationLabel.text = facebookFriend.location;
-    NSString *message;
-    if (facebookFriend.mutualFriendCount == 1) {
+    NSString *message = @"";
+    if (!facebookFriend.mutualFriendCount) {
+        return;
+    }
+    if (facebookFriend.mutualFriendCount.integerValue == 1) {
         message = NSLocalizedString(@"%i Mutual Friend", nil);
     }
     else {

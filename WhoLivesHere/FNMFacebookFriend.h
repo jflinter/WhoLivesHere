@@ -18,6 +18,6 @@
 @property(nonatomic, readonly) NSURL *fbURL;
 @property(nonatomic, readonly) NSString *location;
 @property(nonatomic, readonly) CLLocation *locationCoordinate;
-@property(nonatomic, readonly) NSInteger mutualFriendCount;
+@property(nonatomic, readwrite) NSNumber *mutualFriendCount;
 
 @end

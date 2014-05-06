@@ -20,21 +20,17 @@ static NSString *const kErrorKey = @"error";
 @implementation FNMLocationOperation
 
 + (FNMLocationOperation *)locationOperationWithQuery:(NSString *)query {
-    FNMLocationOperation *operation;
-    operation = [FNMLocationOperation operationWithBlock:^(RNCompletionBlock completion) {
+    return [FNMLocationOperation operationWithBlock:^(RNCompletionBlock completion) {
         CLGeocoder *geocoder = [[CLGeocoder alloc] init];
         [geocoder geocodeAddressString:query completionHandler:^(NSArray *placemarks, NSError *error) {
             if (error) {
-                operation.error = error;
                 completion(@{kErrorKey: error});
                 return;
             }
-            operation.placemarks = placemarks;
             completion(@{kPlacemarksKey: placemarks});
             return;
         }];
     }];
-    return operation;
 }
 
 - (NSError *)error {

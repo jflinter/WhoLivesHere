@@ -145,6 +145,15 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
         }
         else {
             self.friendsList = results;
+#ifdef GENERATING_SCREENSHOTS
+            _friendsList = @[
+                             [[FNMFacebookFriend alloc] initWithResponseDictionary:@{@"name": @"Tim Cook", @"current_location": @{@"name": @"Cupertino, CA"}, @"mutual_friend_count": @(4)}],
+                             [[FNMFacebookFriend alloc] initWithResponseDictionary:@{@"name": @"Jony Ive", @"current_location": @{@"name": @"Cupertino, CA"}, @"mutual_friend_count": @(3)}],
+                             [[FNMFacebookFriend alloc] initWithResponseDictionary:@{@"name": @"Craig Federighi", @"current_location": @{@"name": @"Cupertino, CA"}, @"mutual_friend_count": @(500)}],
+                             
+                             
+                             ];
+#endif
         }
         [self didEndSearching];
     }];

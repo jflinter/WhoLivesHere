@@ -14,8 +14,6 @@
 		A05E2F7218BADD3900793181 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A05E2F7118BADD3900793181 /* XCTest.framework */; };
 		A05E2F7318BADD3900793181 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A05E2F5218BADD3900793181 /* Foundation.framework */; };
 		A05E2F7418BADD3900793181 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A05E2F5618BADD3900793181 /* UIKit.framework */; };
-		A05E2F7C18BADD3900793181 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A05E2F7A18BADD3900793181 /* InfoPlist.strings */; };
-		A05E2F7E18BADD3900793181 /* FriendsNearMeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A05E2F7D18BADD3900793181 /* FriendsNearMeTests.m */; };
 		A0ABE06318E7CF32007E51D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0ABE05318E7CF31007E51D1 /* Main.storyboard */; };
 		A0ABE06418E7CF32007E51D1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0ABE05618E7CF31007E51D1 /* InfoPlist.strings */; };
 		A0ABE06518E7CF32007E51D1 /* FNMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0ABE05918E7CF31007E51D1 /* FNMAppDelegate.m */; };
@@ -29,6 +27,7 @@
 		A0ABE07718E7F070007E51D1 /* FNMFacebookOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A0ABE07618E7F070007E51D1 /* FNMFacebookOperation.m */; };
 		A0ABE07A18E7F7D2007E51D1 /* FNMLocationOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A0ABE07918E7F7D2007E51D1 /* FNMLocationOperation.m */; };
 		A0ABE07D18E80926007E51D1 /* FNMFriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0ABE07C18E80926007E51D1 /* FNMFriendTableViewCell.m */; };
+		A0ABE09418E9279E007E51D1 /* FriendsNearMeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A0ABE09118E9279E007E51D1 /* FriendsNearMeTests.m */; };
 		A0AC4C4118D7EE97000C567F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0AC4C4018D7EE97000C567F /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,9 +48,6 @@
 		A05E2F5618BADD3900793181 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A05E2F7018BADD3900793181 /* WhoLivesHereTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhoLivesHereTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A05E2F7118BADD3900793181 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		A05E2F7918BADD3900793181 /* WhoLivesHereTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WhoLivesHereTests-Info.plist"; sourceTree = "<group>"; };
-		A05E2F7B18BADD3900793181 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		A05E2F7D18BADD3900793181 /* FriendsNearMeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendsNearMeTests.m; sourceTree = "<group>"; };
 		A0ABE05418E7CF31007E51D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		A0ABE05718E7CF31007E51D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
 		A0ABE05818E7CF31007E51D1 /* FNMAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNMAppDelegate.h; path = WhoLivesHere/FNMAppDelegate.h; sourceTree = "<group>"; };
@@ -75,6 +71,8 @@
 		A0ABE07918E7F7D2007E51D1 /* FNMLocationOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNMLocationOperation.m; path = WhoLivesHere/FNMLocationOperation.m; sourceTree = "<group>"; };
 		A0ABE07B18E80926007E51D1 /* FNMFriendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNMFriendTableViewCell.h; path = WhoLivesHere/FNMFriendTableViewCell.h; sourceTree = "<group>"; };
 		A0ABE07C18E80926007E51D1 /* FNMFriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNMFriendTableViewCell.m; path = WhoLivesHere/FNMFriendTableViewCell.m; sourceTree = "<group>"; };
+		A0ABE09118E9279E007E51D1 /* FriendsNearMeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsNearMeTests.m; sourceTree = "<group>"; };
+		A0ABE09218E9279E007E51D1 /* WhoLivesHereTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "WhoLivesHereTests-Info.plist"; sourceTree = "<group>"; };
 		A0AC4C4018D7EE97000C567F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		EF9AB91211574377B126EE96 /* libPods-WhoLivesHere.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WhoLivesHere.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC06301C50AE425A89B209A4 /* Pods-WhoLivesHere.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoLivesHere.xcconfig"; path = "Pods/Pods-WhoLivesHere.xcconfig"; sourceTree = "<group>"; };
@@ -109,9 +107,9 @@
 		A05E2F4618BADD3900793181 = {
 			isa = PBXGroup;
 			children = (
+				A0ABE08E18E9279E007E51D1 /* WhoLivesHereTests */,
 				A0ABE06B18E7CF3C007E51D1 /* WhoLivesHere */,
 				A0ABE06218E7CF31007E51D1 /* Images.xcassets */,
-				A05E2F7718BADD3900793181 /* FriendsNearMeTests */,
 				A05E2F5118BADD3900793181 /* Frameworks */,
 				A05E2F5018BADD3900793181 /* Products */,
 				FC06301C50AE425A89B209A4 /* Pods-WhoLivesHere.xcconfig */,
@@ -138,24 +136,6 @@
 				EF9AB91211574377B126EE96 /* libPods-WhoLivesHere.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A05E2F7718BADD3900793181 /* FriendsNearMeTests */ = {
-			isa = PBXGroup;
-			children = (
-				A05E2F7D18BADD3900793181 /* FriendsNearMeTests.m */,
-				A05E2F7818BADD3900793181 /* Supporting Files */,
-			);
-			path = FriendsNearMeTests;
-			sourceTree = "<group>";
-		};
-		A05E2F7818BADD3900793181 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				A05E2F7918BADD3900793181 /* WhoLivesHereTests-Info.plist */,
-				A05E2F7A18BADD3900793181 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		A0ABE05218E7CF31007E51D1 /* Base.lproj */ = {
@@ -185,20 +165,10 @@
 				A0ABE07118E7CF7E007E51D1 /* Supporting Files */,
 				A0ABE05818E7CF31007E51D1 /* FNMAppDelegate.h */,
 				A0ABE05918E7CF31007E51D1 /* FNMAppDelegate.m */,
-				A0ABE05A18E7CF31007E51D1 /* FNMFacebookFriend.h */,
-				A0ABE05B18E7CF31007E51D1 /* FNMFacebookFriend.m */,
-				A0ABE07B18E80926007E51D1 /* FNMFriendTableViewCell.h */,
-				A0ABE07C18E80926007E51D1 /* FNMFriendTableViewCell.m */,
-				A0ABE05C18E7CF31007E51D1 /* FNMFriendClient.h */,
-				A0ABE05D18E7CF31007E51D1 /* FNMFriendClient.m */,
-				A0ABE07818E7F7D2007E51D1 /* FNMLocationOperation.h */,
-				A0ABE07918E7F7D2007E51D1 /* FNMLocationOperation.m */,
-				A0ABE07518E7F070007E51D1 /* FNMFacebookOperation.h */,
-				A0ABE07618E7F070007E51D1 /* FNMFacebookOperation.m */,
-				A0ABE05E18E7CF31007E51D1 /* FNMFriendTableViewController.h */,
-				A0ABE05F18E7CF31007E51D1 /* FNMFriendTableViewController.m */,
-				A0ABE06018E7CF31007E51D1 /* FNMLoginViewController.h */,
-				A0ABE06118E7CF31007E51D1 /* FNMLoginViewController.m */,
+				A0ABE09C18E929B1007E51D1 /* Models */,
+				A0ABE09A18E9299D007E51D1 /* Views */,
+				A0ABE09B18E929A6007E51D1 /* Services */,
+				A0ABE09D18E929B7007E51D1 /* Controllers */,
 			);
 			name = WhoLivesHere;
 			sourceTree = "<group>";
@@ -211,6 +181,57 @@
 				A0ABE06E18E7CF78007E51D1 /* WhoLivesHere-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A0ABE08E18E9279E007E51D1 /* WhoLivesHereTests */ = {
+			isa = PBXGroup;
+			children = (
+				A0ABE09118E9279E007E51D1 /* FriendsNearMeTests.m */,
+				A0ABE09218E9279E007E51D1 /* WhoLivesHereTests-Info.plist */,
+			);
+			path = WhoLivesHereTests;
+			sourceTree = "<group>";
+		};
+		A0ABE09A18E9299D007E51D1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A0ABE07B18E80926007E51D1 /* FNMFriendTableViewCell.h */,
+				A0ABE07C18E80926007E51D1 /* FNMFriendTableViewCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		A0ABE09B18E929A6007E51D1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A0ABE05C18E7CF31007E51D1 /* FNMFriendClient.h */,
+				A0ABE05D18E7CF31007E51D1 /* FNMFriendClient.m */,
+				A0ABE07818E7F7D2007E51D1 /* FNMLocationOperation.h */,
+				A0ABE07918E7F7D2007E51D1 /* FNMLocationOperation.m */,
+				A0ABE07518E7F070007E51D1 /* FNMFacebookOperation.h */,
+				A0ABE07618E7F070007E51D1 /* FNMFacebookOperation.m */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		A0ABE09C18E929B1007E51D1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A0ABE05A18E7CF31007E51D1 /* FNMFacebookFriend.h */,
+				A0ABE05B18E7CF31007E51D1 /* FNMFacebookFriend.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		A0ABE09D18E929B7007E51D1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A0ABE05E18E7CF31007E51D1 /* FNMFriendTableViewController.h */,
+				A0ABE05F18E7CF31007E51D1 /* FNMFriendTableViewController.m */,
+				A0ABE06018E7CF31007E51D1 /* FNMLoginViewController.h */,
+				A0ABE06118E7CF31007E51D1 /* FNMLoginViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,7 +327,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A05E2F7C18BADD3900793181 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,7 +386,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A05E2F7E18BADD3900793181 /* FriendsNearMeTests.m in Sources */,
+				A0ABE09418E9279E007E51D1 /* FriendsNearMeTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,14 +401,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A05E2F7A18BADD3900793181 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A05E2F7B18BADD3900793181 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		A0ABE05318E7CF31007E51D1 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -523,19 +535,18 @@
 		A05E2F8518BADD3900793181 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FriendsNearMe.app/FriendsNearMe";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FriendsNearMe/FriendsNearMe-Prefix.pch";
+				GCC_PREFIX_HEADER = "WhoLivesHere/WhoLivesHere-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "FriendsNearMeTests/WhoLivesHereTests-Info.plist";
+				INFOPLIST_FILE = "WhoLivesHereTests/WhoLivesHereTests-Info.plist";
 				PRODUCT_NAME = WhoLivesHereTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -545,15 +556,14 @@
 		A05E2F8618BADD3900793181 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FriendsNearMe.app/FriendsNearMe";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FriendsNearMe/FriendsNearMe-Prefix.pch";
-				INFOPLIST_FILE = "FriendsNearMeTests/WhoLivesHereTests-Info.plist";
+				GCC_PREFIX_HEADER = "WhoLivesHere/WhoLivesHere-Prefix.pch";
+				INFOPLIST_FILE = "WhoLivesHereTests/WhoLivesHereTests-Info.plist";
 				PRODUCT_NAME = WhoLivesHereTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
