@@ -25,7 +25,7 @@
     else {
         message = NSLocalizedString(@"%i Mutual Friends", nil);
     }
-    self.mutualFriendLabel.text = [NSString stringWithFormat:message, facebookFriend.mutualFriendCount];
+    self.mutualFriendLabel.text = [NSString stringWithFormat:message, facebookFriend.mutualFriendCount.integerValue];
 }
 
 @end
